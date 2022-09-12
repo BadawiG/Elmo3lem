@@ -27,7 +27,7 @@ public class ApiContoller {
 	@GetMapping(value="/")
 	public String getPage()
 	{  
-		return "Hello Spring";	
+		return "Hello Rehaab";	
 		}
 	
 	@GetMapping(value="/teatchers")  
