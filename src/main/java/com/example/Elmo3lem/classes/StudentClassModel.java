@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.classes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +30,11 @@ public class StudentClassModel {
 	private Long subsidiaryId;
 	private String commint;
 	
+	
+	StudentClassModel()
+	{
+		
+	}
 	
 	public Long getStudentClassId() {
 		return StudentClassId;

@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.classes;
 
 import java.sql.Date;
 
@@ -49,6 +49,12 @@ public class TeatcherClassModel {
 	private String classLongitude;
 
 	private Long subsidiaryId;
+	
+	
+	TeatcherClassModel()
+	{
+		
+	}
 
 	public Long getClassId() {
 		return classId;

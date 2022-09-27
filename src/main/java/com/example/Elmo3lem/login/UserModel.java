@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.login;
 
 import java.sql.Date;
 
@@ -43,6 +43,12 @@ public class UserModel {
 	
 	private Long userType;
 	private Long subsidiaryId;
+	
+	
+	UserModel()
+	{
+		
+	}
 	public Long getId() {
 		return id;
 	}
@@ -164,8 +170,15 @@ public class UserModel {
 		this.subsidiaryId = subsidiaryId;
 	}
 	
+	@Override
+	public String toString() {
+		return " {id=" + id + ", firestName=" + firestName + ", secondName=" + secondName + ", Gender="
+				+ Gender + ", birthDate=" + birthDate + ", nationality=" + nationality + ", passportNumber="
+				+ passportNumber + ", nationalIdNumber=" + nationalIdNumber + ", userImage=" + userImage
+				+ ", mobileNumber1=" + mobileNumber1 + ", mobileNumber2=" + mobileNumber2 + ", eMail=" + eMail
+				+ ", adress1=" + adress1 + ", adress2=" + adress2 + ", subjectsFkId=" + subjectsFkId + ", hireDate="
+				+ hireDate + ", userName=" + userName + ", password=" + password + ", userType=" + userType
+				+ ", subsidiaryId=" + subsidiaryId + "}";
+	}
 	
-	
-		
-
 }

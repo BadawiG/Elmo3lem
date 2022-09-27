@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.Lookups;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +22,11 @@ public class LookupsModel {
 	private String LookupNameEn;
 	
 	private Long subsidiaryId;
+	
+	LookupsModel()
+	{
+		
+	}
 
 	public Long getLookupId() {
 		return LookupId;

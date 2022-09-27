@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.subsidiaries;
 
 import java.sql.Date;
 
@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity 
 @Table(name="Subsidiaries")
@@ -20,6 +21,9 @@ public class SubsidiariesModel {
 	@Column
 	private String subsidiaryNameAr;
 	private String subsidiaryNameEn;
+	
+	@Transient
+	private String subsidiaryName;
 
 	private String subsidiaryAdress;
 
@@ -27,6 +31,23 @@ public class SubsidiariesModel {
 	
 	private Long subsidiaryContactNumber1;
 	private Long subsidiaryContactNumber2;
+	
+	
+	SubsidiariesModel()
+	{
+		
+	}
+	
+	
+	public String getSubsidiaryName() {
+		return subsidiaryName;
+	}
+
+
+	public void setSubsidiaryName(String subsidiaryName) {
+		this.subsidiaryName = subsidiaryName;
+	}
+
 	public Long getSubsidiarId() {
 		return subsidiarId;
 	}

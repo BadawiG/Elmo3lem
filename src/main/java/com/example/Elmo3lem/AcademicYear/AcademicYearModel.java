@@ -1,4 +1,4 @@
-package com.example.Elmo3lem.model;
+package com.example.Elmo3lem.AcademicYear;
 
 import java.sql.Date;
 
@@ -27,6 +27,9 @@ public class AcademicYearModel {
 
 	private Long subsidiaryId;
 
+	AcademicYearModel(){
+		
+	}
 	
 	public Long getAcademicYearid() {
 		return AcademicYearid;
