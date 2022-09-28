@@ -14,7 +14,7 @@ public class UserModel {
 	@GeneratedValue(strategy =  GenerationType.AUTO)
 	private Long id;
 	
-	@Column
+    @Column(name = "firest_name", nullable = false)
 	// personal info
 	private String firestName;
 	private String secondName;
@@ -28,6 +28,8 @@ public class UserModel {
  	//contact info
 	private Long mobileNumber1;
 	private Long mobileNumber2;
+	
+    @Column(name = "e_mail", nullable = false,unique = true) 
 	private String eMail;
 	private String adress1;
 	private String adress2;
@@ -37,7 +39,9 @@ public class UserModel {
 	private Date hireDate;
  
 	//user account info
+    @Column(name = "user_name", nullable = false,unique = true)
 	private String userName;
+    @Column(name = "password", nullable = false)
 	private String password;
 	
 	

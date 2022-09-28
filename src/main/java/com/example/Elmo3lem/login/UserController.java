@@ -1,33 +1,32 @@
-package com.example.Elmo3lem.Controller;
+package com.example.Elmo3lem.login;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Elmo3lem.AcademicYear.AcademicYearModel;
+import com.example.Elmo3lem.AcademicYear.AcademicYearRepo;
+import com.example.Elmo3lem.Utils.ApiContoller;
 import com.example.Elmo3lem.Utils.CustomResponce;
-import com.example.Elmo3lem.login.LoginDto;
-import com.example.Elmo3lem.login.UserModel;
-import com.example.Elmo3lem.login.UserRepo;
 
 
-@RestController 
-@RequestMapping("api/user")
-public class ApiContoller {
-	
+@RestController
+@RequestMapping ("api/user")
+public class UserController extends ApiContoller {
+
 	@Autowired
 	private UserRepo userRepo ;
+	@Autowired
+	private AcademicYearRepo academicYearRepo ;
+	
 	
 	@GetMapping(value="/")
 	public String getPage()
@@ -119,4 +118,12 @@ public class ApiContoller {
  		return userFinded;
 	}
  
+	
+	@GetMapping(value="/getallacademicyears")  
+	public CustomResponce   getAllAcademicYears() {
+		
+		List<AcademicYearModel> academicYearsModelFinded =academicYearRepo.findAllYears(); 
+		 
+		return new CustomResponce(academicYearsModelFinded);
+	}
 }
