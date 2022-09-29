@@ -71,17 +71,16 @@ public class UserController extends ApiContoller {
 		}
 		else
 		{
-			new CustomResponce(401,"Wrong Password",null);
+			return new CustomResponce(401,"Wrong Password",null);
 		}
 		
 		}
 		else
 		{
-			new CustomResponce(401,"User Not Found",null);
+			return new CustomResponce(401,"User Not Found",null);
 		}
 		
-		return new CustomResponce(usermodel);
-	}
+ 	}
 	
 	@PutMapping(value="/updateUser/{userId}")  
 	public String   updateTeatchers(@PathVariable Long userId ,@RequestBody UserModel user ) {
