@@ -5,6 +5,7 @@ import java.util.List;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -24,8 +25,8 @@ public class LookupController extends ApiContoller {
 	
 	
 	@GetMapping(value="/getList/{lookupId}")  
-	public CustomResponce getList(@PathVariable Integer lookupId ,@RequestHeader String Lang) {		
-		return new CustomResponce(lookupsRepo.findLists(lookupId,Lang));
+	public CustomResponce getList(@PathVariable Integer lookupId ,@RequestHeader String lang, Pageable pageable ) {		
+		return new CustomResponce(lookupsRepo.findLists(lookupId,lang,pageable));
 	}
 	
   
