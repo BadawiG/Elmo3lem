@@ -60,10 +60,7 @@ public class UserController extends ApiContoller {
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 		boolean isPasswordMatch = passwordEncoder.matches(user.getPassword(), 
-				usermodel.getPassword());
-		 
-		System.out.println("isPasswordMatch ============================================"+isPasswordMatch);
-//		userRepo.save(user);
+				usermodel.getPassword()); 
 		
 		if(isPasswordMatch)
 		{
@@ -82,39 +79,54 @@ public class UserController extends ApiContoller {
 		
  	}
 	
-	@PutMapping(value="/updateUser/{userId}")  
-	public String   updateTeatchers(@PathVariable Long userId ,@RequestBody UserModel user ) {
+	@PutMapping(value="/updateUser")  
+	public CustomResponce   updateTeatchers( @RequestBody UserModel user ) {
 		
-		UserModel userFinded =userRepo.findById(userId).get();
+		Integer userId=user.getId();
 		
+		UserModel userFinded =userRepo.getUserById(userId);
 		
-		userFinded.setFirestName(user.getFirestName());
-		userFinded.setSecondName(user.getSecondName());
-		userFinded.setGender(user.getGender());
-		userFinded.setBirthDate(user.getBirthDate());
-		userFinded.setNationalIdNumber(user.getNationalIdNumber());
-		userFinded.setNationality(user.getNationality());
-		userFinded.setPassportNumber(user.getPassportNumber());
-		userFinded.setUserImage(user.getUserImage());
-		userFinded.setMobileNumber1(user.getMobileNumber1());
-		userFinded.setMobileNumber2(user.getMobileNumber2());
-		userFinded.seteMail(user.geteMail());
-		userFinded.setAdress1(user.getAdress1());
-		userFinded.setAdress2(user.getAdress2()); 
-		userFinded.setSubjectsFkId(user.getSubjectsFkId());
-		userFinded.setHireDate(user.getHireDate());
-		userFinded.setUserName(user.getUserName());
-		userFinded.setPassword(user.getPassword()); 
-		userRepo.save(userFinded);
- 		return "teatcher Updated ..";
-	}
+		if(userFinded!= null)
+		{
+			userFinded.setFirestName(user.getFirestName());
+			userFinded.setSecondName(user.getSecondName());
+			userFinded.setGender(user.getGender());
+			userFinded.setBirthDate(user.getBirthDate());
+			userFinded.setNationalIdNumber(user.getNationalIdNumber());
+			userFinded.setNationality(user.getNationality());
+			userFinded.setPassportNumber(user.getPassportNumber());
+			userFinded.setUserImage(user.getUserImage());
+			userFinded.setMobileNumber1(user.getMobileNumber1());
+			userFinded.setMobileNumber2(user.getMobileNumber2());
+			userFinded.seteMail(user.geteMail());
+			userFinded.setAdress1(user.getAdress1());
+			userFinded.setAdress2(user.getAdress2()); 
+			userFinded.setSubjectsFkId(user.getSubjectsFkId());
+			userFinded.setHireDate(user.getHireDate());
+			userFinded.setUserName(user.getUserName());
+			userFinded.setPassword(user.getPassword()); 
+			userRepo.save(userFinded);	
+			return new CustomResponce();
+		} 
+		else
+		{
+			return new CustomResponce(404,"User Not Found");
+		}
+		 
+ 	}
 	
 	@GetMapping(value="/getUser/{userId}")  
-	public UserModel   getUser(@PathVariable Long userId ,@RequestBody UserModel user ) {
+	public CustomResponce   getUser(@PathVariable Integer userId ,@RequestBody UserModel user ) {
 		
-		UserModel userFinded =userRepo.findById(userId).get(); 
+		UserModel userFinded =userRepo.getUserById(userId);   
+ 		
+		if( userFinded !=null)
+		{ 
+
+	 		return new CustomResponce( userFinded);
+		}
 		 
- 		return userFinded;
+ 		return new CustomResponce(404,"User Not Found");
 	}
  
 	

@@ -17,6 +17,11 @@ public class CustomResponce {
 		this.message = message;
 		this.content = content;
 	}
+	
+	public CustomResponce(int statusCode, String message ) {
+ 		this.statusCode = statusCode;
+		this.message = message;
+ 	}
 
 	public CustomResponce( Object content) { 
 		this.content = content;

@@ -12,7 +12,7 @@ public class UserModel {
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
     @Column(name = "firest_name", nullable = false)
 	// personal info
@@ -53,10 +53,67 @@ public class UserModel {
 	{
 		
 	}
-	public Long getId() {
+	
+	
+	public UserModel(String firestName, String secondName, Long gender, Date birthDate, Long nationality,
+			String passportNumber, String nationalIdNumber, String userImage, Long mobileNumber1, Long mobileNumber2,
+			String eMail, String adress1, String adress2, Long subjectsFkId, Date hireDate, String userName,
+			String password, Long userType, Long subsidiaryId) {
+		super();
+		this.firestName = firestName;
+		this.secondName = secondName;
+		Gender = gender;
+		this.birthDate = birthDate;
+		this.nationality = nationality;
+		this.passportNumber = passportNumber;
+		this.nationalIdNumber = nationalIdNumber;
+		this.userImage = userImage;
+		this.mobileNumber1 = mobileNumber1;
+		this.mobileNumber2 = mobileNumber2;
+		this.eMail = eMail;
+		this.adress1 = adress1;
+		this.adress2 = adress2;
+		this.subjectsFkId = subjectsFkId;
+		this.hireDate = hireDate;
+		this.userName = userName;
+		this.password = password;
+		this.userType = userType;
+		this.subsidiaryId = subsidiaryId;
+	}
+
+
+	public UserModel(Integer id, String firestName, String secondName, Long gender, Date birthDate, Long nationality,
+			String passportNumber, String nationalIdNumber, String userImage, Long mobileNumber1, Long mobileNumber2,
+			String eMail, String adress1, String adress2, Long subjectsFkId, Date hireDate, String userName,
+			String password, Long userType, Long subsidiaryId) {
+		super();
+		this.id = id;
+		this.firestName = firestName;
+		this.secondName = secondName;
+		Gender = gender;
+		this.birthDate = birthDate;
+		this.nationality = nationality;
+		this.passportNumber = passportNumber;
+		this.nationalIdNumber = nationalIdNumber;
+		this.userImage = userImage;
+		this.mobileNumber1 = mobileNumber1;
+		this.mobileNumber2 = mobileNumber2;
+		this.eMail = eMail;
+		this.adress1 = adress1;
+		this.adress2 = adress2;
+		this.subjectsFkId = subjectsFkId;
+		this.hireDate = hireDate;
+		this.userName = userName;
+		this.password = password;
+		this.userType = userType;
+		this.subsidiaryId = subsidiaryId;
+	}
+
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirestName() {
