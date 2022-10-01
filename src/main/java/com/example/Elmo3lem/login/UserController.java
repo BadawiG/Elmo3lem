@@ -116,7 +116,7 @@ public class UserController extends ApiContoller {
  	}
 	
 	@GetMapping(value="/getUser/{userId}")  
-	public CustomResponce   getUser(@PathVariable Integer userId ,@RequestBody UserModel user ) {
+	public CustomResponce   getUser(@PathVariable Integer userId  ) {
 		
 		UserModel userFinded =userRepo.getUserById(userId);   
  		
