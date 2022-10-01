@@ -106,7 +106,7 @@ public class UserController extends ApiContoller {
 			userFinded.setUserName(user.getUserName());
 			userFinded.setPassword(user.getPassword()); 
 			userRepo.save(userFinded);	
-			return new CustomResponce(userRepo);
+			return new CustomResponce(userFinded);
 		} 
 		else
 		{
